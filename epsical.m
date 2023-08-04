@@ -4,12 +4,12 @@ function epsi = epsical(Adm,Cf)
     [na,nc] = size(Adm);
     epsi = cell(size(Adm));
     for i = 1:nc
-        if ~Cf(i)
-            for j = 1:na
+        for j = 1:na
+            if ~Cf(i)
                 epsi{j,i} = Adm{j,i}(end:-1:1);
+              else
+                epsi{j,i} = Adm{j,i};
             end
-        else
-            epsi{j,i} = Adm{j,i};
         end
     end
     % epsi is a cell size Adm
